@@ -9,7 +9,7 @@ This document provides essential guidelines for AI agents working on this projec
 
 ## 🎯 Golden Rule
 
-**ALWAYS consult [design-system/README.md](design-system/README.md) before making any changes.**
+**ALWAYS consult [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md) before making any changes.**
 
 This is the **single source of truth** for all design decisions, coding standards, and architectural guidelines. Every AI agent must read and follow this document.
 
@@ -19,7 +19,7 @@ This is the **single source of truth** for all design decisions, coding standard
 
 ### 1. Design System is Law
 
-- **Before ANY code changes**: Read [design-system/README.md](design-system/README.md)
+- **Before ANY code changes**: Read [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 - **All UI work MUST**: Follow the standards defined in the Design System
 - **Never deviate**: From established patterns without explicit user approval
 - **Always reference**: The Design System documentation when in doubt
@@ -34,7 +34,7 @@ The Design System centralizes all critical information:
 - ✅ **Best Practices** (CSS property order, JavaScript patterns, HTML semantics)
 - ✅ **Workflows** (step-by-step processes for common tasks)
 
-**Location**: [design-system/README.md](design-system/README.md)
+**Location**: [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 
 ### 3. No Hardcoded Values
 
@@ -173,7 +173,7 @@ User Request
     ↓
 Read AI-GUIDELINES.md (this file)
     ↓
-Read design-system/README.md (MANDATORY)
+Read design-system/AI-DESIGN-SUSTEM.md (MANDATORY)
     ↓
 Check existing patterns in codebase
     ↓
@@ -194,7 +194,7 @@ Complete task
 
 Before completing any task, verify:
 
-- [ ] Read and followed [design-system/README.md](design-system/README.md)
+- [ ] Read and followed [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 - [ ] Used CSS custom properties (no hardcoded values)
 - [ ] Applied BEM naming convention correctly
 - [ ] Implemented mobile-first responsive design
@@ -219,11 +219,11 @@ Before completing any task, verify:
 | Document | Purpose | When to Read |
 |----------|---------|--------------|
 | **[AI-GUIDELINES.md](AI-GUIDELINES.md)** | AI agent rules and workflow | **Always read first** |
-| **[design-system/README.md](design-system/README.md)** | Complete Design System guidelines | **Before any UI work (MANDATORY)** |
+| **[design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)** | Complete Design System guidelines | **Before any UI work (MANDATORY)** |
 
 ### How the Design System is Organized
 
-The Design System document ([design-system/README.md](design-system/README.md)) contains:
+The Design System document ([design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)) contains:
 
 1. **Overview** - Project objectives and key principles
 2. **Design Tokens** - All CSS custom properties (colors, spacing, typography, etc.)
@@ -273,7 +273,7 @@ If you're a new AI agent working on this project for the first time:
 You're here! ✅ Now understand the core principles and workflow.
 
 ### Step 2: Read the Design System
-**[design-system/README.md](design-system/README.md)** - This is **MANDATORY**. Read it thoroughly.
+**[design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)** - This is **MANDATORY**. Read it thoroughly.
 
 ### Step 3: Understand the Structure
 The Design System explains:
@@ -299,7 +299,7 @@ Before marking any task complete, go through the [Quality Checklist](#-quality-c
 
 **Workflow**:
 
-1. ✅ Read [design-system/README.md](design-system/README.md)
+1. ✅ Read [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 2. ✅ Identify atomic level: **Molecule** (combines text + icon + button)
 3. ✅ Choose BEM naming: `.alert`, `.alert__icon`, `.alert__message`, `.alert--error`
 4. ✅ Use design tokens:
@@ -317,7 +317,7 @@ Before marking any task complete, go through the [Quality Checklist](#-quality-c
 
 **Workflow**:
 
-1. ✅ Read [design-system/README.md](design-system/README.md)
+1. ✅ Read [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 2. ✅ Identify design token: `var(--space-md)`
 3. ✅ Update the value in the design token if needed
 4. ✅ Apply mobile-first approach
@@ -328,7 +328,7 @@ Before marking any task complete, go through the [Quality Checklist](#-quality-c
 
 ## ⚠️ Critical Reminders
 
-1. **Design System is MANDATORY** - [design-system/README.md](design-system/README.md) must be read before every task
+1. **Design System is MANDATORY** - [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md) must be read before every task
 2. **No hardcoded values** - Use design tokens exclusively
 3. **BEM is strict** - Follow `.block__element--modifier` pattern
 4. **Mobile-first only** - Desktop-first is not allowed
@@ -340,7 +340,7 @@ Before marking any task complete, go through the [Quality Checklist](#-quality-c
 
 ## 🆘 When in Doubt
 
-1. **Check** [design-system/README.md](design-system/README.md) first
+1. **Check** [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md) first
 2. **Look** at existing patterns in the codebase
 3. **Ask** the user for clarification if still unclear
 4. **Never** assume or guess - always verify
@@ -351,7 +351,7 @@ Before marking any task complete, go through the [Quality Checklist](#-quality-c
 
 For questions or issues:
 
-1. Consult [design-system/README.md](design-system/README.md)
+1. Consult [design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)
 2. Review existing code patterns
 3. Ask the user for guidance
 
@@ -359,4 +359,4 @@ For questions or issues:
 
 **Remember**: These guidelines exist to ensure consistency, quality, and maintainability. Following them makes the codebase better for everyone.
 
-**The Design System ([design-system/README.md](design-system/README.md)) is your best friend. Read it. Follow it. Trust it.**
+**The Design System ([design-system/AI-DESIGN-SUSTEM.md](design-system/AI-DESIGN-SUSTEM.md)) is your best friend. Read it. Follow it. Trust it.**
