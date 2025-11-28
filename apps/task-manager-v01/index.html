@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task Manager - Organize your tasks efficiently">
+  <title>Task Manager</title>
+
+  <!-- Design System Styles -->
+  <link rel="stylesheet" href="../../design-system/ui-library/styles.css">
+
+  <!-- Application Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="app-header__container">
+      <h1 class="app-header__title">Task Manager</h1>
+      <p class="app-header__subtitle">Organize your work efficiently</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="app-main">
+    <div class="app-container">
+
+      <!-- Task Creation Section -->
+      <section class="task-creator" aria-label="Create new task">
+        <h2 class="task-creator__title">Create New Task</h2>
+
+        <form class="task-form" id="task-form" aria-label="Task creation form">
+          <div class="form-group">
+            <label for="task-title" class="form-group__label">
+              Task Title <span class="form-group__required" aria-label="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="task-title"
+              name="title"
+              class="form-group__input"
+              placeholder="Enter task title"
+              required
+              aria-required="true"
+              maxlength="100"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="task-description" class="form-group__label">
+              Description
+            </label>
+            <textarea
+              id="task-description"
+              name="description"
+              class="form-group__textarea"
+              placeholder="Enter task description"
+              rows="4"
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <div class="form-group form-group--row">
+            <div class="form-group__half">
+              <label for="task-due-date" class="form-group__label">
+                Due Date <span class="form-group__required" aria-label="required">*</span>
+              </label>
+              <input
+                type="date"
+                id="task-due-date"
+                name="dueDate"
+                class="form-group__input"
+                required
+                aria-required="true"
+              >
+            </div>
+
+            <div class="form-group__half">
+              <label for="task-status" class="form-group__label">
+                Status <span class="form-group__required" aria-label="required">*</span>
+              </label>
+              <select
+                id="task-status"
+                name="status"
+                class="form-group__select"
+                required
+                aria-required="true"
+              >
+                <option value="new">New</option>
+                <option value="active">Active</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn--primary">
+              <span class="btn__text">Create Task</span>
+            </button>
+            <button type="button" class="btn btn--secondary" id="cancel-btn">
+              <span class="btn__text">Cancel</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Task Filters -->
+      <section class="task-filters" aria-label="Filter tasks">
+        <h2 class="visually-hidden">Filter Tasks</h2>
+        <div class="task-filters__container">
+          <button
+            type="button"
+            class="task-filters__btn task-filters__btn--active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All Tasks
+          </button>
+          <button
+            type="button"
+            class="task-filters__btn"
+            data-filter="new"
+            aria-pressed="false"
+          >
+            New
+          </button>
+          <button
+            type="button"
+            class="task-filters__btn"
+            data-filter="active"
+            aria-pressed="false"
+          >
+            Active
+          </button>
+          <button
+            type="button"
+            class="task-filters__btn"
+            data-filter="done"
+            aria-pressed="false"
+          >
+            Done
+          </button>
+        </div>
+      </section>
+
+      <!-- Task List -->
+      <section class="task-list" aria-label="Task list">
+        <h2 class="task-list__title">Tasks</h2>
+        <div class="task-list__container" id="task-list">
+          <!-- Tasks will be dynamically inserted here -->
+          <div class="task-list__empty" id="empty-state">
+            <p class="task-list__empty-text">No tasks yet. Create your first task above!</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Task Modal (for editing and viewing comments) -->
+  <div class="modal" id="task-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__container">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Edit Task</h2>
+        <button
+          type="button"
+          class="modal__close"
+          aria-label="Close modal"
+          data-close-modal
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="modal__body">
+        <!-- Task Edit Form -->
+        <form class="task-form" id="task-edit-form">
+          <div class="form-group">
+            <label for="edit-task-title" class="form-group__label">
+              Task Title <span class="form-group__required">*</span>
+            </label>
+            <input
+              type="text"
+              id="edit-task-title"
+              name="title"
+              class="form-group__input"
+              required
+              maxlength="100"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="edit-task-description" class="form-group__label">
+              Description
+            </label>
+            <textarea
+              id="edit-task-description"
+              name="description"
+              class="form-group__textarea"
+              rows="4"
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <div class="form-group form-group--row">
+            <div class="form-group__half">
+              <label for="edit-task-due-date" class="form-group__label">
+                Due Date <span class="form-group__required">*</span>
+              </label>
+              <input
+                type="date"
+                id="edit-task-due-date"
+                name="dueDate"
+                class="form-group__input"
+                required
+              >
+            </div>
+
+            <div class="form-group__half">
+              <label for="edit-task-status" class="form-group__label">
+                Status <span class="form-group__required">*</span>
+              </label>
+              <select
+                id="edit-task-status"
+                name="status"
+                class="form-group__select"
+                required
+              >
+                <option value="new">New</option>
+                <option value="active">Active</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn--primary">
+              <span class="btn__text">Update Task</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Comments Section -->
+        <div class="task-comments">
+          <h3 class="task-comments__title">Comments</h3>
+
+          <div class="task-comments__list" id="comments-list">
+            <!-- Comments will be dynamically inserted here -->
+          </div>
+
+          <form class="task-comments__form" id="comment-form">
+            <div class="form-group">
+              <label for="comment-text" class="form-group__label">
+                Add Comment
+              </label>
+              <textarea
+                id="comment-text"
+                name="comment"
+                class="form-group__textarea"
+                placeholder="Write your comment..."
+                rows="3"
+                maxlength="300"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn--secondary btn--small">
+                <span class="btn__text">Add Comment</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="app-footer__container">
+      <p class="app-footer__text">
+        Task Manager &copy; 2025 | Built with Design System
+      </p>
+    </div>
+  </footer>
+
+  <!-- Application JavaScript -->
+  <script src="script.js" defer></script>
+</body>
+</html>

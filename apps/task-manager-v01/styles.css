@@ -1,0 +1,851 @@
+/* ====================================
+   Task Manager Application Styles
+   Following Design System Guidelines
+   ==================================== */
+
+/* ====================================
+   Layout Components
+   ==================================== */
+
+/* App Header */
+.app-header {
+  /* Display & Box Model */
+  padding: var(--space-xl) var(--space-md);
+
+  /* Visual */
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-medium);
+}
+
+.app-header__container {
+  /* Display & Box Model */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-header__title {
+  /* Typography */
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.app-header__subtitle {
+  /* Typography */
+  font-size: var(--font-size-body);
+  color: var(--color-white);
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* App Main */
+.app-main {
+  /* Display & Box Model */
+  min-height: calc(100vh - 300px);
+  padding: var(--space-xl) var(--space-md);
+
+  /* Visual */
+  background-color: var(--color-background);
+}
+
+.app-container {
+  /* Display & Box Model */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* App Footer */
+.app-footer {
+  /* Display & Box Model */
+  padding: var(--space-lg) var(--space-md);
+
+  /* Visual */
+  background-color: var(--color-gray-900);
+  border-top: 1px solid var(--color-gray-300);
+}
+
+.app-footer__container {
+  /* Display & Box Model */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-footer__text {
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  color: var(--color-white);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* ====================================
+   Task Creator Section
+   ==================================== */
+
+.task-creator {
+  /* Display & Box Model */
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
+}
+
+.task-creator__title {
+  /* Typography */
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-lg);
+}
+
+/* ====================================
+   Form Components (BEM)
+   ==================================== */
+
+.task-form {
+  /* Display & Box Model */
+  width: 100%;
+}
+
+.form-group {
+  /* Display & Box Model */
+  margin-bottom: var(--space-lg);
+}
+
+.form-group--row {
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group__half {
+  /* Display & Box Model */
+  flex: 1;
+}
+
+.form-group__label {
+  /* Display & Box Model */
+  display: block;
+  margin-bottom: var(--space-xs);
+
+  /* Typography */
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-900);
+}
+
+.form-group__required {
+  /* Typography */
+  color: var(--color-error);
+  font-weight: var(--font-weight-bold);
+}
+
+.form-group__input,
+.form-group__textarea,
+.form-group__select {
+  /* Display & Box Model */
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-gray-300);
+
+  /* Typography */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-900);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-small);
+
+  /* Other */
+  transition: border-color var(--duration-fast) var(--easing-ease-in-out),
+              box-shadow var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.form-group__input:focus,
+.form-group__textarea:focus,
+.form-group__select:focus {
+  /* Display & Box Model */
+  border-color: var(--color-primary);
+
+  /* Visual */
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.form-group__input::placeholder,
+.form-group__textarea::placeholder {
+  /* Typography */
+  color: var(--color-gray-500);
+}
+
+.form-group__textarea {
+  /* Display & Box Model */
+  min-height: 100px;
+
+  /* Other */
+  resize: vertical;
+}
+
+.form-group__select {
+  /* Other */
+  cursor: pointer;
+}
+
+/* ====================================
+   Button Components (BEM)
+   ==================================== */
+
+.btn {
+  /* Display & Box Model */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid transparent;
+
+  /* Typography */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+
+  /* Visual */
+  border-radius: var(--radius-small);
+
+  /* Other */
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.btn:focus {
+  /* Visual */
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.btn--primary {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  /* Visual */
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.btn--secondary {
+  /* Display & Box Model */
+  margin-left: var(--space-sm);
+
+  /* Typography */
+  color: var(--color-gray-900);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-color: var(--color-gray-300);
+}
+
+.btn--secondary:hover {
+  /* Visual */
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-500);
+}
+
+.btn--small {
+  /* Display & Box Model */
+  padding: var(--space-xs) var(--space-md);
+
+  /* Typography */
+  font-size: var(--font-size-body-small);
+}
+
+.btn--danger {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
+  background-color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.btn--danger:hover {
+  /* Visual */
+  background-color: #b81a1a;
+}
+
+.btn__text {
+  /* Display & Box Model */
+  display: inline-block;
+}
+
+/* ====================================
+   Task Filters
+   ==================================== */
+
+.task-filters {
+  /* Display & Box Model */
+  margin-bottom: var(--space-xl);
+}
+
+.task-filters__container {
+  /* Display & Box Model */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.task-filters__btn {
+  /* Display & Box Model */
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid var(--color-gray-300);
+
+  /* Typography */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-small);
+
+  /* Other */
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.task-filters__btn:hover {
+  /* Visual */
+  background-color: var(--color-gray-100);
+  border-color: var(--color-gray-500);
+}
+
+.task-filters__btn:focus {
+  /* Visual */
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.task-filters__btn--active {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.task-filters__btn--active:hover {
+  /* Visual */
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+/* ====================================
+   Task List
+   ==================================== */
+
+.task-list {
+  /* Display & Box Model */
+  margin-bottom: var(--space-2xl);
+}
+
+.task-list__title {
+  /* Typography */
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-lg);
+}
+
+.task-list__container {
+  /* Display & Box Model */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.task-list__empty {
+  /* Display & Box Model */
+  padding: var(--space-2xl);
+  border: 2px dashed var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-medium);
+  text-align: center;
+}
+
+.task-list__empty-text {
+  /* Typography */
+  font-size: var(--font-size-body);
+  color: var(--color-gray-500);
+  margin-bottom: 0;
+}
+
+/* ====================================
+   Task Card Component (BEM)
+   ==================================== */
+
+.task-card {
+  /* Position */
+  position: relative;
+
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
+
+  /* Other */
+  transition: all var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.task-card:hover {
+  /* Visual */
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.task-card__header {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+.task-card__title {
+  /* Display & Box Model */
+  flex: 1;
+  margin-right: var(--space-sm);
+
+  /* Typography */
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-xs);
+}
+
+.task-card__status {
+  /* Display & Box Model */
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+
+  /* Visual */
+  border-radius: var(--radius-small);
+}
+
+.task-card__status--new {
+  /* Typography */
+  color: var(--color-info);
+
+  /* Visual */
+  background-color: rgba(1, 122, 173, 0.1);
+}
+
+.task-card__status--active {
+  /* Typography */
+  color: var(--color-warning);
+
+  /* Visual */
+  background-color: rgba(233, 161, 0, 0.1);
+}
+
+.task-card__status--done {
+  /* Typography */
+  color: var(--color-success);
+
+  /* Visual */
+  background-color: rgba(41, 130, 59, 0.1);
+}
+
+.task-card__description {
+  /* Display & Box Model */
+  margin-bottom: var(--space-md);
+
+  /* Typography */
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-700);
+}
+
+.task-card__meta {
+  /* Display & Box Model */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-gray-300);
+}
+
+.task-card__meta-item {
+  /* Display & Box Model */
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  color: var(--color-gray-700);
+}
+
+.task-card__meta-label {
+  /* Typography */
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+}
+
+.task-card__actions {
+  /* Display & Box Model */
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.task-card__btn {
+  /* Display & Box Model */
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid transparent;
+
+  /* Typography */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-medium);
+
+  /* Visual */
+  border-radius: var(--radius-small);
+
+  /* Other */
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.task-card__btn:focus {
+  /* Visual */
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.task-card__btn--edit {
+  /* Typography */
+  color: var(--color-info);
+
+  /* Visual */
+  background-color: rgba(1, 122, 173, 0.1);
+  border-color: var(--color-info);
+}
+
+.task-card__btn--edit:hover {
+  /* Visual */
+  background-color: var(--color-info);
+  color: var(--color-white);
+}
+
+.task-card__btn--delete {
+  /* Typography */
+  color: var(--color-error);
+
+  /* Visual */
+  background-color: rgba(220, 32, 32, 0.1);
+  border-color: var(--color-error);
+}
+
+.task-card__btn--delete:hover {
+  /* Visual */
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+.task-card__comments-count {
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  color: var(--color-gray-700);
+  font-style: italic;
+}
+
+/* ====================================
+   Modal Component (BEM)
+   ==================================== */
+
+.modal {
+  /* Position */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* Display & Box Model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-md);
+
+  /* Other */
+  overflow-y: auto;
+}
+
+.modal[hidden] {
+  /* Display & Box Model */
+  display: none;
+}
+
+.modal__overlay {
+  /* Position */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+
+  /* Display & Box Model */
+  width: 100%;
+  height: 100%;
+
+  /* Visual */
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Other */
+  cursor: pointer;
+}
+
+.modal__container {
+  /* Position */
+  position: relative;
+  z-index: 1002;
+
+  /* Display & Box Model */
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-white);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-xlarge);
+}
+
+.modal__header {
+  /* Display & Box Model */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-gray-100);
+}
+
+.modal__title {
+  /* Typography */
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: 0;
+}
+
+.modal__close {
+  /* Display & Box Model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  padding: 0;
+  border: none;
+
+  /* Typography */
+  font-size: var(--font-size-h3);
+  line-height: 1;
+  color: var(--color-gray-700);
+
+  /* Visual */
+  background-color: transparent;
+  border-radius: var(--radius-small);
+
+  /* Other */
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-ease-in-out);
+}
+
+.modal__close:hover {
+  /* Typography */
+  color: var(--color-error);
+
+  /* Visual */
+  background-color: rgba(220, 32, 32, 0.1);
+}
+
+.modal__close:focus {
+  /* Visual */
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+.modal__body {
+  /* Display & Box Model */
+  padding: var(--space-xl);
+}
+
+/* ====================================
+   Task Comments Component (BEM)
+   ==================================== */
+
+.task-comments {
+  /* Display & Box Model */
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 2px solid var(--color-gray-300);
+}
+
+.task-comments__title {
+  /* Typography */
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-lg);
+}
+
+.task-comments__list {
+  /* Display & Box Model */
+  margin-bottom: var(--space-lg);
+}
+
+.task-comments__item {
+  /* Display & Box Model */
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-gray-300);
+
+  /* Visual */
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-small);
+}
+
+.task-comments__item-header {
+  /* Display & Box Model */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.task-comments__item-date {
+  /* Typography */
+  font-size: var(--font-size-caption);
+  color: var(--color-gray-700);
+  font-style: italic;
+}
+
+.task-comments__item-text {
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  line-height: var(--line-height-body);
+  color: var(--color-gray-900);
+  margin-bottom: 0;
+}
+
+.task-comments__empty {
+  /* Typography */
+  font-size: var(--font-size-body-small);
+  color: var(--color-gray-500);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.task-comments__form {
+  /* Display & Box Model */
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-gray-300);
+}
+
+/* ====================================
+   Responsive Design - Mobile First
+   ==================================== */
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .app-header {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .app-header__title {
+    font-size: var(--font-size-h1);
+  }
+
+  .app-main {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .task-creator {
+    padding: var(--space-2xl);
+  }
+
+  .form-group--row {
+    flex-direction: row;
+  }
+
+  .task-list__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .task-list__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .modal__container {
+    max-width: 700px;
+  }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1400px;
+  }
+}
+
+/* ====================================
+   Utility Classes
+   ==================================== */
+
+.hidden {
+  display: none !important;
+}
