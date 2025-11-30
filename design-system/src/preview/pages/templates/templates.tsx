@@ -16,22 +16,9 @@ export function Templates() {
     setTemplates(templatePaths.sort());
   }, []);
 
-  const openTemplate = (templatePath: string) => {
-    window.open(`/?preview=${templatePath}`, '_blank');
-  };
 
   return (
-    <div className="templates-page">
-      <div className="templates-page__intro">
-        <p>
-          Esta página lista todos os templates disponíveis no sistema.
-          Clique num template para abri-lo numa nova janela.
-        </p>
-        <p className="templates-page__count">
-          <strong>{templates.length}</strong> template{templates.length !== 1 ? 's' : ''} disponível{templates.length !== 1 ? 'eis' : ''}
-        </p>
-      </div>
-
+    <div>
       {templates.length === 0 ? (
         <div className="templates-page__empty">
           <p>Nenhum template encontrado.</p>
@@ -41,25 +28,20 @@ export function Templates() {
         </div>
       ) : (
         <div className="templates-page__grid">
+
           {templates.map((templatePath) => {
             const pathParts = templatePath.split('/');
-            const category = pathParts.length > 1 ? pathParts[0] : 'root';
             const name = pathParts[pathParts.length - 1];
 
             return (
               <div key={templatePath} className="template-card">
-                <div className="template-card__header">
-                  <h3 className="template-card__name">{name}</h3>
-                </div>
                 <div className="template-card__actions">
                   <a
                     href={`/?preview=${templatePath}`}
                     className="template-card__button template-card__button--secondary"
                     target="_blank"
                     rel="noopener noreferrer"
-                  >
-                    Nova Janela
-                  </a>
+                  >{name}</a>
                 </div>
               </div>
             );

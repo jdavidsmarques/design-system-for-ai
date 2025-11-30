@@ -29,6 +29,11 @@ export interface LayoutBaseProps {
   children: React.ReactNode;
   /** Optional page title to display in the content header */
   pageTitle?: string;
+  /** Optional breadcrumb items to display navigation path */
+  breadcrumbs?: Array<{
+    label: string;
+    href?: string;
+  }>;
   /** Optional action buttons to display in the content header */
   actions?: React.ReactNode;
   /** Footer signature text */
@@ -39,6 +44,8 @@ export interface LayoutBaseProps {
   onLogoClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
   /** Callback when user button is clicked */
   onUserClick?: () => void;
+  /** Callback when breadcrumb is clicked */
+  onBreadcrumbClick?: (href: string) => void;
 }
 
 /**
@@ -78,11 +85,13 @@ export const LayoutBase: React.FC<LayoutBaseProps> = ({
   user,
   children,
   pageTitle,
+  breadcrumbs,
   actions,
   footerText = '© 2025 All rights reserved',
   onNavClick,
   onLogoClick,
   onUserClick,
+  onBreadcrumbClick,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -106,6 +115,13 @@ export const LayoutBase: React.FC<LayoutBaseProps> = ({
   const handleUserClick = () => {
     if (onUserClick) {
       onUserClick();
+    }
+  };
+
+  const handleBreadcrumbClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (onBreadcrumbClick) {
+      event.preventDefault();
+      onBreadcrumbClick(href);
     }
   };
 
@@ -167,14 +183,6 @@ export const LayoutBase: React.FC<LayoutBaseProps> = ({
           {/* User Area */}
           {user && (
             <div className="layout-base__user">
-              <button
-                type="button"
-                className="layout-base__user-button"
-                onClick={handleUserClick}
-                onKeyDown={(e) => handleKeyDown(e, handleUserClick)}
-                aria-label={`User menu for ${user.name}`}
-                aria-haspopup="true"
-              >
                 <div className="layout-base__user-avatar">
                   {user.avatar ? (
                     <img src={user.avatar} alt={user.name} />
@@ -183,7 +191,6 @@ export const LayoutBase: React.FC<LayoutBaseProps> = ({
                   )}
                 </div>
                 <span className="layout-base__user-name">{user.name}</span>
-              </button>
             </div>
           )}
 
@@ -217,6 +224,37 @@ export const LayoutBase: React.FC<LayoutBaseProps> = ({
               {pageTitle && <h1 className="layout-base__title">{pageTitle}</h1>}
               {actions && <div className="layout-base__actions">{actions}</div>}
             </div>
+          )}
+
+          {/* Breadcrumbs */}
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <nav className="layout-base__breadcrumbs" aria-label="Breadcrumb">
+              <ol className="layout-base__breadcrumbs-list">
+                {breadcrumbs.map((crumb, index) => {
+                  const isLast = index === breadcrumbs.length - 1;
+                  return (
+                    <li key={index} className="layout-base__breadcrumbs-item">
+                      {crumb.href && !isLast ? (
+                        <a
+                          href={crumb.href}
+                          className="layout-base__breadcrumbs-link"
+                          onClick={(e) => handleBreadcrumbClick(e, crumb.href!)}
+                        >
+                          {crumb.label}
+                        </a>
+                      ) : (
+                        <span
+                          className="layout-base__breadcrumbs-current"
+                          aria-current={isLast ? 'page' : undefined}
+                        >
+                          {crumb.label}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </nav>
           )}
 
           {/* Page Content */}

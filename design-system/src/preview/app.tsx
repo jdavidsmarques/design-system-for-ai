@@ -3,6 +3,10 @@ import './app.scss'
 import { LayoutBase } from '../lib'
 import { NativeElements } from './pages/native-elements'
 import { Templates } from './pages/templates'
+import { List } from '../templates'
+import { Components } from './pages/components/components'
+import { ItemLabelPreview } from './pages/components/item-label/item-label-preview'
+import { CardPreview } from './pages/components/card/card-preview'
 import Home from './pages/home'
 
 function App() {
@@ -25,9 +29,7 @@ function App() {
     { label: 'Home', href: '/', active: currentPath === '/' },
     { label: 'Native Elements', href: '/native-elements', active: currentPath === '/native-elements' },
     { label: 'Templates', href: '/templates', active: currentPath === '/templates' },
-    { label: 'Components', href: '/components', active: currentPath === '/components' },
-    { label: 'Documentation', href: '/docs', active: currentPath === '/docs' },
-    { label: 'About', href: '/about', active: currentPath === '/about' },
+    { label: 'Components', href: '/components', active: currentPath.startsWith('/components') },
   ]
 
   const user = {
@@ -50,8 +52,16 @@ function App() {
         return 'Native HTML Elements'
       case '/templates':
         return 'Templates'
+      case '/templates/list':
+        return 'List Template'
+      case '/components':
+        return 'Components'
+      case '/components/item-label':
+        return 'Item Label'
+      case '/components/card':
+        return 'Card'
       default:
-        return 'Design System for AI'
+        return ''
     }
   }
 
@@ -61,6 +71,14 @@ function App() {
         return <NativeElements />
       case '/templates':
         return <Templates />
+      case '/templates/list':
+        return <List />
+      case '/components':
+        return <Components />
+      case '/components/item-label':
+        return <ItemLabelPreview />
+      case '/components/card':
+        return <CardPreview />
       case '/':
       default:
         return <Home />
@@ -74,12 +92,6 @@ function App() {
       navItems={navItems}
       user={user}
       pageTitle={getPageTitle()}
-      actions={
-        <>
-          <button onClick={() => console.log('Export')}>Export</button>
-          <button onClick={() => console.log('Settings')}>Settings</button>
-        </>
-      }
       footerText="© 2025 Design System for AI. All rights reserved."
       onNavClick={handleNavClick}
       onUserClick={handleUserClick}

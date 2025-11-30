@@ -157,9 +157,11 @@ export const NativeElements = () => {
 
                     <fieldset>
                         <legend>Buttons</legend>
-                        <button type="button">Button</button>
-                        <button type="submit">Submit</button>
-                        <button type="reset">Reset</button>
+                        <button>Sencondary</button>
+                        <button className="btn btn-primary">Primary</button>
+                        <button className="btn btn-success">Success</button>
+                        <button className="btn btn-ghost">Cancel</button>
+                        <button className="btn btn-danger">Danger</button>
                         <button disabled>Disabled</button>
                     </fieldset>
                 </form>

@@ -19,7 +19,7 @@ if (preview) {
 
   if (routeKey) {
     // importa e renderiza o template dinamicamente
-    templateModules[routeKey]().then(mod => {
+    templateModules[routeKey]().then((mod: any) => {
       const Component = mod.default
       root.render(
         <StrictMode>

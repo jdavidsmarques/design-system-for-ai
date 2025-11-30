@@ -19,39 +19,29 @@ h1 {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-lg);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 h2 {
   font-size: var(--font-size-h2);
-  margin-top: var(--space-2xl);
-  padding-bottom: var(--space-sm);
   border-bottom: 2px solid var(--color-gray-200);
 }
 
 h3 {
   font-size: var(--font-size-h3);
-  margin-top: var(--space-xl);
   color: var(--color-gray-800);
 }
 
 h4 {
   font-size: var(--font-size-h4);
-  margin-top: var(--space-lg);
   color: var(--color-gray-700);
 }
 
 h5 {
   font-size: var(--font-size-h5);
-  margin-top: var(--space-md);
 }
 
 h6 {
   font-size: var(--font-size-h6);
-  margin-top: var(--space-md);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-gray-600);
@@ -216,23 +206,6 @@ ul {
   
   li {
     position: relative;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      left: calc(-1 * var(--space-lg));
-      top: 0.6em;
-      width: 6px;
-      height: 6px;
-      background-color: var(--color-primary);
-      border-radius: 50%;
-    }
-  }
-  
-  ul li::before {
-    background-color: var(--color-primary-light);
-    width: 4px;
-    height: 4px;
   }
 }
 
@@ -281,7 +254,6 @@ fieldset {
   padding: var(--space-lg);
   border: 2px solid var(--color-gray-200);
   border-radius: var(--radius-medium);
-  background-color: var(--color-white);
   
   legend {
     padding: 0 var(--space-sm);
@@ -315,9 +287,10 @@ input[type="week"],
 textarea,
 select {
   width: 100%;
-  padding: var(--space-sm) var(--space-md);
+  padding: 0 var(--space-md);
   font-size: var(--font-size-body);
-  line-height: var(--line-height-normal);
+  line-height: 1;
+  height: var(--input-size);
   color: var(--color-gray-900);
   background-color: var(--color-white);
   border: 2px solid var(--color-gray-300);
@@ -407,39 +380,42 @@ input[type="file"] {
   }
 }
 
-/* Buttons */
+/* ====================================
+   Button Utility Classes
+   ==================================== */
+
+.btn,
 button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  padding: var(--space-sm) var(--space-lg);
-  margin-right: var(--space-sm);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  border: none;
+  height: var(--button-size);
+  line-height: 1;
+  padding: 0 var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  border: solid 1px var(--color-gray-300);
   border-radius: var(--radius-medium);
   cursor: pointer;
   transition: all var(--duration-fast) var(--easing-ease-in-out);
-  box-shadow: var(--shadow-small);
-  
+
   &:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-1px);
+    background-color: var(--color-gray-100);
     box-shadow: var(--shadow-medium);
   }
-  
+
   &:active {
     transform: translateY(0);
     box-shadow: var(--shadow-small);
   }
-  
+
   &:focus {
     outline: var(--focus-width) solid var(--focus-color);
     outline-offset: var(--focus-offset);
   }
-  
+
   &:disabled {
     background-color: var(--color-gray-400);
     cursor: not-allowed;
@@ -449,19 +425,81 @@ input[type="reset"] {
   }
 }
 
-button[type="submit"] {
+/* Primary button variant */
+.btn-primary {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
+  background-color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-dark);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-dark);
+  }
+}
+
+/* Success button variant */
+.btn-success {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
   background-color: var(--color-success);
-  
-  &:hover {
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-success-dark);
+  }
+
+  &:active:not(:disabled) {
     background-color: var(--color-success-dark);
   }
 }
 
-button[type="reset"] {
-  background-color: var(--color-gray-600);
-  
-  &:hover {
-    background-color: var(--color-gray-700);
+/* Danger button variant */
+.btn-danger {
+  /* Typography */
+  color: var(--color-white);
+
+  /* Visual */
+  background-color: var(--color-error);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error-dark);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-error-dark);
+  }
+}
+
+/* Ghost button variant (transparent with border) */
+.btn-ghost {
+  /* Visual */
+  background-color: transparent;
+  color: var(--color-gray-600);
+  border-color: var(--color-gray-600);
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-gray-50);
+    border-color: var(--color-gray-100);
+    color: var(--color-text);
+    box-shadow: none;
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-gray-100);
+    border-color: var(--color-gray-500);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--color-gray-400);
+    border-color: var(--color-gray-300);
   }
 }
 
@@ -471,12 +509,9 @@ button[type="reset"] {
 
 table {
   width: 100%;
-  margin: var(--space-xl) 0;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: var(--radius-medium);
   overflow: hidden;
-  box-shadow: var(--shadow-medium);
   background-color: var(--color-white);
   
   caption {
@@ -489,17 +524,19 @@ table {
     border-bottom: 2px solid var(--color-gray-200);
   }
   
-  thead {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    
+  thead {    
     th {
-      padding: var(--space-md) var(--space-lg);
-      font-weight: var(--font-weight-semibold);
-      text-align: left;
-      color: var(--color-white);
-      font-size: var(--font-size-sm);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      
+      /* Display & Box Model */
+      padding: var(--space-sm);
+      text-align: left;
+
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      border-bottom: solid 1px var(--color-gray-300);
     }
   }
   
@@ -517,9 +554,15 @@ table {
     }
     
     td {
-      padding: var(--space-md) var(--space-lg);
-      color: var(--color-gray-700);
       border-bottom: 1px solid var(--color-gray-200);
+  
+      /* Display & Box Model */
+      padding: var(--space-xs) var(--space-sm);
+
+      /* Typography */
+      font-size: var(--font-size-body);
+      color: var(--color-text);
+      
     }
   }
   

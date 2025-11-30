@@ -11,9 +11,9 @@
   /* ================================
      Colors - Primary Palette
      ================================ */
-  --color-primary: #336699;
-  --color-primary-light: #4d7fab;
-  --color-primary-dark: #264d73;
+  --color-primary: #ED002F;
+  --color-primary-light: #ff0033;
+  --color-primary-dark: #c50027;
 
   --color-secondary: #6c757d;
   --color-secondary-light: #868e96;
@@ -67,16 +67,16 @@
   /* ================================
      Spacing Scale
      ================================ */
-  --space-3xs: 0.125rem;  /* 2px */
-  --space-2xs: 0.25rem;   /* 4px */
-  --space-xs: 0.5rem;     /* 8px */
-  --space-sm: 0.75rem;    /* 12px */
-  --space-md: 1rem;       /* 16px */
-  --space-lg: 1.5rem;     /* 24px */
-  --space-xl: 2rem;       /* 32px */
-  --space-2xl: 3rem;      /* 48px */
-  --space-3xl: 4rem;      /* 64px */
-  --space-4xl: 6rem;      /* 96px */
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
 
   /* ================================
      Typography - Font Families
@@ -88,19 +88,19 @@
   /* ================================
      Typography - Font Sizes
      ================================ */
-  --font-size-xs: 0.75rem;      /* 12px */
-  --font-size-sm: 0.875rem;     /* 14px */
-  --font-size-body: 1rem;       /* 16px */
-  --font-size-body-small: 0.875rem; /* 14px */
-  --font-size-lg: 1.125rem;     /* 18px */
-  --font-size-xl: 1.25rem;      /* 20px */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-body: 16px;
+    --font-size-body-small: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
 
-  --font-size-h1: 2.5rem;       /* 40px */
-  --font-size-h2: 2rem;         /* 32px */
-  --font-size-h3: 1.75rem;      /* 28px */
-  --font-size-h4: 1.5rem;       /* 24px */
-  --font-size-h5: 1.25rem;      /* 20px */
-  --font-size-h6: 1rem;         /* 16px */
+    --font-size-h1: 40px;
+    --font-size-h2: 32px;
+    --font-size-h3: 28px;
+    --font-size-h4: 24px;
+    --font-size-h5: 20px;
+    --font-size-h6: 16px;
 
   /* ================================
      Typography - Font Weights
@@ -124,11 +124,11 @@
      Border Radius
      ================================ */
   --radius-none: 0;
-  --radius-small: 0.25rem;      /* 4px */
-  --radius-medium: 0.5rem;      /* 8px */
-  --radius-large: 0.75rem;      /* 12px */
-  --radius-xl: 1rem;            /* 16px */
-  --radius-2xl: 1.5rem;         /* 24px */
+  --radius-small: 4px;
+  --radius-medium: 6px;
+  --radius-large: 12px; 
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
   --radius-full: 9999px;
 
   /* ================================
@@ -191,7 +191,13 @@
   --container-padding: var(--space-md);
   --grid-columns: 12;
   --grid-gap: var(--space-md);
+  --layout-max-width: 1400px;
+
+
+  --button-size : 40px;
+  --input-size : 40px;
 }
+
 
 /* ====================================
    CSS Reset & Normalization
@@ -411,6 +417,137 @@ table {
     display: none !important;
   }
 }
+
+/* ====================================
+   Margin Utility Classes
+   ==================================== */
+
+/* All sides margin */
+.margin-3xs { margin: var(--space-3xs) !important; }
+.margin-2xs { margin: var(--space-2xs) !important; }
+.margin-xs { margin: var(--space-xs) !important; }
+.margin-sm { margin: var(--space-sm) !important; }
+.margin-md { margin: var(--space-md) !important; }
+.margin-lg { margin: var(--space-lg) !important; }
+.margin-xl { margin: var(--space-xl) !important; }
+.margin-2xl { margin: var(--space-2xl) !important; }
+.margin-3xl { margin: var(--space-3xl) !important; }
+.margin-4xl { margin: var(--space-4xl) !important; }
+.margin-0 { margin: 0 !important; }
+
+/* Margin top */
+.margin-top-3xs { margin-top: var(--space-3xs) !important; }
+.margin-top-2xs { margin-top: var(--space-2xs) !important; }
+.margin-top-xs { margin-top: var(--space-xs) !important; }
+.margin-top-sm { margin-top: var(--space-sm) !important; }
+.margin-top-md { margin-top: var(--space-md) !important; }
+.margin-top-lg { margin-top: var(--space-lg) !important; }
+.margin-top-xl { margin-top: var(--space-xl) !important; }
+.margin-top-2xl { margin-top: var(--space-2xl) !important; }
+.margin-top-3xl { margin-top: var(--space-3xl) !important; }
+.margin-top-4xl { margin-top: var(--space-4xl) !important; }
+.margin-top-0 { margin-top: 0 !important; }
+
+/* Margin right */
+.margin-right-3xs { margin-right: var(--space-3xs) !important; }
+.margin-right-2xs { margin-right: var(--space-2xs) !important; }
+.margin-right-xs { margin-right: var(--space-xs) !important; }
+.margin-right-sm { margin-right: var(--space-sm) !important; }
+.margin-right-md { margin-right: var(--space-md) !important; }
+.margin-right-lg { margin-right: var(--space-lg) !important; }
+.margin-right-xl { margin-right: var(--space-xl) !important; }
+.margin-right-2xl { margin-right: var(--space-2xl) !important; }
+.margin-right-3xl { margin-right: var(--space-3xl) !important; }
+.margin-right-4xl { margin-right: var(--space-4xl) !important; }
+.margin-right-0 { margin-right: 0 !important; }
+
+/* Margin bottom */
+.margin-bottom-3xs { margin-bottom: var(--space-3xs) !important; }
+.margin-bottom-2xs { margin-bottom: var(--space-2xs) !important; }
+.margin-bottom-xs { margin-bottom: var(--space-xs) !important; }
+.margin-bottom-sm { margin-bottom: var(--space-sm) !important; }
+.margin-bottom-md { margin-bottom: var(--space-md) !important; }
+.margin-bottom-lg { margin-bottom: var(--space-lg) !important; }
+.margin-bottom-xl { margin-bottom: var(--space-xl) !important; }
+.margin-bottom-2xl { margin-bottom: var(--space-2xl) !important; }
+.margin-bottom-3xl { margin-bottom: var(--space-3xl) !important; }
+.margin-bottom-4xl { margin-bottom: var(--space-4xl) !important; }
+.margin-bottom-0 { margin-bottom: 0 !important; }
+
+/* Margin left */
+.margin-left-3xs { margin-left: var(--space-3xs) !important; }
+.margin-left-2xs { margin-left: var(--space-2xs) !important; }
+.margin-left-xs { margin-left: var(--space-xs) !important; }
+.margin-left-sm { margin-left: var(--space-sm) !important; }
+.margin-left-md { margin-left: var(--space-md) !important; }
+.margin-left-lg { margin-left: var(--space-lg) !important; }
+.margin-left-xl { margin-left: var(--space-xl) !important; }
+.margin-left-2xl { margin-left: var(--space-2xl) !important; }
+.margin-left-3xl { margin-left: var(--space-3xl) !important; }
+.margin-left-4xl { margin-left: var(--space-4xl) !important; }
+.margin-left-0 { margin-left: 0 !important; }
+
+/* Margin horizontal (left + right) */
+.margin-x-3xs { margin-left: var(--space-3xs) !important; margin-right: var(--space-3xs) !important; }
+.margin-x-2xs { margin-left: var(--space-2xs) !important; margin-right: var(--space-2xs) !important; }
+.margin-x-xs { margin-left: var(--space-xs) !important; margin-right: var(--space-xs) !important; }
+.margin-x-sm { margin-left: var(--space-sm) !important; margin-right: var(--space-sm) !important; }
+.margin-x-md { margin-left: var(--space-md) !important; margin-right: var(--space-md) !important; }
+.margin-x-lg { margin-left: var(--space-lg) !important; margin-right: var(--space-lg) !important; }
+.margin-x-xl { margin-left: var(--space-xl) !important; margin-right: var(--space-xl) !important; }
+.margin-x-2xl { margin-left: var(--space-2xl) !important; margin-right: var(--space-2xl) !important; }
+.margin-x-3xl { margin-left: var(--space-3xl) !important; margin-right: var(--space-3xl) !important; }
+.margin-x-4xl { margin-left: var(--space-4xl) !important; margin-right: var(--space-4xl) !important; }
+.margin-x-0 { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* Margin vertical (top + bottom) */
+.margin-y-3xs { margin-top: var(--space-3xs) !important; margin-bottom: var(--space-3xs) !important; }
+.margin-y-2xs { margin-top: var(--space-2xs) !important; margin-bottom: var(--space-2xs) !important; }
+.margin-y-xs { margin-top: var(--space-xs) !important; margin-bottom: var(--space-xs) !important; }
+.margin-y-sm { margin-top: var(--space-sm) !important; margin-bottom: var(--space-sm) !important; }
+.margin-y-md { margin-top: var(--space-md) !important; margin-bottom: var(--space-md) !important; }
+.margin-y-lg { margin-top: var(--space-lg) !important; margin-bottom: var(--space-lg) !important; }
+.margin-y-xl { margin-top: var(--space-xl) !important; margin-bottom: var(--space-xl) !important; }
+.margin-y-2xl { margin-top: var(--space-2xl) !important; margin-bottom: var(--space-2xl) !important; }
+.margin-y-3xl { margin-top: var(--space-3xl) !important; margin-bottom: var(--space-3xl) !important; }
+.margin-y-4xl { margin-top: var(--space-4xl) !important; margin-bottom: var(--space-4xl) !important; }
+.margin-y-0 { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+/* Auto margins for centering */
+.margin-auto { margin: auto !important; }
+.margin-x-auto { margin-left: auto !important; margin-right: auto !important; }
+.margin-y-auto { margin-top: auto !important; margin-bottom: auto !important; }
+.margin-top-auto { margin-top: auto !important; }
+.margin-right-auto { margin-right: auto !important; }
+.margin-bottom-auto { margin-bottom: auto !important; }
+.margin-left-auto { margin-left: auto !important; }
+
+
+/* ====================================
+   Label Utility Classes
+   ==================================== */
+
+// to organize input label forms
+.label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+}
+
+/* ====================================
+   Align Utility Classes
+   ==================================== */
+
+  .display-flex {
+    display: flex;
+   }
+  .justify-content-space-between {
+    justify-content: space-between;
+   }
+  .align-items-center {
+    align-items: center;
+  }
+
 
 /* ====================================
    Print Styles

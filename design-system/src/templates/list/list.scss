@@ -1,0 +1,108 @@
+@use '../../styles/base';
+@use '../../styles/native-elements.scss';
+
+.list-template {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  &__search {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    
+    input[type="search"] {
+      min-width: 300px;
+    }
+  }
+
+  &__results-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  &__table-wrapper {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    th {
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      background-color: var(--color-gray-50);
+    }
+
+    td {
+      font-size: var(--font-size-body);
+      color: var(--color-text);
+    }
+
+    tr:hover td {
+      background-color: var(--color-gray-50);
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+
+    &--active {
+      background-color: rgba(40, 167, 69, 0.1);
+      color: var(--color-success-dark);
+    }
+
+    &--inactive {
+      background-color: rgba(108, 117, 125, 0.1);
+      color: var(--color-text-muted);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-gray-200);
+    margin-top: var(--space-md);
+
+    &-info {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+    }
+
+    &-controls {
+      display: flex;
+      gap: var(--space-xs);
+    }
+  }
+}

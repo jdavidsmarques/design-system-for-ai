@@ -5,7 +5,7 @@ A responsive layout component that provides a consistent structure for applicati
 ## Features
 
 - ✅ **Sticky Header** - Header stays visible while scrolling
-- ✅ **Responsive Design** - Mobile-first approach with tablet and desktop breakpoints
+- ✅ **Responsive Design** - Desktop-first approach with tablet and mobile breakpoints
 - ✅ **Mobile Navigation** - Hamburger menu toggle for small screens
 - ✅ **User Menu** - Optional user area with avatar and name
 - ✅ **Flexible Content** - Supports page titles and action buttons
@@ -243,21 +243,27 @@ The LayoutBase component follows WCAG 2.1 Level AA standards:
 
 The component adapts to different screen sizes:
 
+### Desktop (1024px+)
+- Full navigation visible
+- Logo text visible
+- User name visible
+- Mobile toggle hidden
+- Maximum spacing and padding
+- Optimized layout for larger screens
+
+### Tablet (768px - 1023px)
+- Logo text visible
+- Navigation visible
+- User name visible
+- Mobile toggle hidden
+- Medium spacing
+
 ### Mobile (< 768px)
 - Hamburger menu toggle visible
 - Logo text hidden
 - Navigation hidden (can be toggled)
 - User name hidden (avatar only)
-
-### Tablet (768px+)
-- Logo text visible
-- Navigation visible
-- User name visible
-- Mobile toggle hidden
-
-### Desktop (1024px+)
-- Increased spacing
-- Optimized layout for larger screens
+- Compact spacing
 
 ## Customization
 

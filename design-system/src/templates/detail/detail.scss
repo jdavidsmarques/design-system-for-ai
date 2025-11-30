@@ -1,0 +1,168 @@
+/* ====================================
+   Detail Template Styles
+   BEM Naming Convention
+   Desktop-First Approach
+   ==================================== */
+
+.detail {
+  /* ====================================
+     Content Wrapper
+     ==================================== */
+
+  &__content {
+    /* Display & Box Model */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  /* ====================================
+     Section Title
+     ==================================== */
+
+  &__section-title {
+    /* Display & Box Model */
+    margin-bottom: var(--space-lg);
+
+    /* Typography */
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+  }
+
+  /* ====================================
+     Grid Layout
+     ==================================== */
+
+  &__grid {
+    /* Display & Box Model */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  &__field {
+    /* Display & Box Model */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    /* Typography */
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+  }
+
+  &__value {
+    /* Typography */
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+  }
+
+  /* ====================================
+     Badge
+     ==================================== */
+
+  &__badge {
+    /* Display & Box Model */
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2xs) var(--space-sm);
+    width: fit-content;
+
+    /* Typography */
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+
+    /* Visual */
+    border-radius: var(--radius-medium);
+
+    &--success {
+      color: var(--color-success-dark);
+      background-color: rgba(40, 167, 69, 0.1);
+    }
+  }
+
+  /* ====================================
+     Table
+     ==================================== */
+
+  &__table-wrapper {
+    /* Display & Box Model */
+    overflow-x: auto;
+  }
+
+  &__table {
+
+    tbody {
+
+
+
+    }
+
+    input[type="checkbox"] {
+      /* Other */
+      cursor: pointer;
+    }
+  }
+
+  &__btn-icon {
+    /* Display & Box Model */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs);
+    border: none;
+
+    /* Visual */
+    background-color: transparent;
+    border-radius: var(--radius-small);
+
+    /* Typography */
+    font-size: var(--font-size-lg);
+
+    /* Other */
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--easing-ease-in-out);
+
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+
+    &:focus {
+      outline: var(--focus-width) solid var(--focus-color);
+      outline-offset: var(--focus-offset);
+    }
+  }
+}
+
+/* ====================================
+   Responsive - Tablet (1023px and down)
+   ==================================== */
+
+@media (max-width: 1023px) {
+  .detail {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/* ====================================
+   Responsive - Mobile (767px and down)
+   ==================================== */
+
+@media (max-width: 767px) {
+  .detail {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

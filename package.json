@@ -1,0 +1,17 @@
+{
+  "name": "design-system-for-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Design System for AI - Monorepo",
+  "workspaces": [
+    "design-system",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:design-system": "npm run build --workspace=design-system",
+    "dev:meeting-attendance": "npm run dev --workspace=meeting-attendance"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
